@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Manrope', system-ui, sans-serif;
+  background: #1A0F0D;
+  color: #F5EBE1;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer base {
+  :root {
+    --background: 12 32% 8%;
+    --foreground: 30 40% 92%;
+    --card: 8 38% 13%;
+    --card-foreground: 30 40% 92%;
+    --popover: 8 38% 13%;
+    --popover-foreground: 30 40% 92%;
+    --primary: 0 61% 43%;
+    --primary-foreground: 30 40% 96%;
+    --secondary: 45 63% 52%;
+    --secondary-foreground: 12 32% 8%;
+    --muted: 8 20% 20%;
+    --muted-foreground: 30 15% 65%;
+    --accent: 45 63% 52%;
+    --accent-foreground: 12 32% 8%;
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 30 40% 96%;
+    --border: 30 30% 20%;
+    --input: 30 30% 20%;
+    --ring: 45 63% 52%;
+    --radius: 0.6rem;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+}
+
+.bisca-bg {
+  background:
+    radial-gradient(ellipse at top, rgba(212,175,55,0.05), transparent 60%),
+    radial-gradient(circle at 50% 60%, #3d1f18 0%, #1A0F0D 55%);
+}
+
+.wood-grain {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(212,175,55,0.02) 0px, transparent 2px, transparent 8px),
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.15) 0px, transparent 1px, transparent 4px);
+}
+
+.card-face {
+  background: linear-gradient(180deg, #FBF3E6 0%, #F5EBE1 100%);
+  color: #1A0F0D;
+  border: 1px solid rgba(26,15,13,0.25);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45), inset 0 0 0 2px rgba(212,175,55,0.15);
+}
+
+.card-back {
+  background:
+    repeating-linear-gradient(45deg, #26547C 0 8px, #1e4364 8px 16px),
+    #26547C;
+  border: 1px solid rgba(212,175,55,0.4);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5), inset 0 0 0 3px #D4AF37, inset 0 0 0 5px #26547C;
+}
+
+.glow-active {
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.6), 0 0 24px rgba(212,175,55,0.35);
+}
+
+[data-debug-wrapper="true"] { display: contents !important; }

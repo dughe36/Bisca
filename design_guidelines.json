@@ -1,0 +1,136 @@
+{
+  "theme": "Italian Osteria Vintage & Baroque",
+  "typography": {
+    "headings": {
+      "fontFamily": "'Cormorant Garamond', serif",
+      "weights": ["600", "700"],
+      "usage": "Used for all main titles, player names on table, round announcements, and victory screens to evoke a classic Italian aesthetic."
+    },
+    "body": {
+      "fontFamily": "'Manrope', sans-serif",
+      "weights": ["400", "500", "600"],
+      "usage": "Used for UI controls, chat text, bidding buttons, and stats to maintain modern, highly legible clean interactions."
+    }
+  },
+  "colors": {
+    "background": {
+      "default": "#1A0F0D",
+      "description": "Very dark warm wood tone for the app background, simulating an evening in an osteria."
+    },
+    "surface": {
+      "default": "#2D1815",
+      "description": "Deep bordeaux wood for modals, panels, and waiting rooms.",
+      "light": "#F5EBE1",
+      "light_description": "Parchment cream for playing card faces."
+    },
+    "primary": {
+      "default": "#B32B2B",
+      "description": "Coppe Red - used for primary actions, CTA buttons, and highlights."
+    },
+    "secondary": {
+      "default": "#D4AF37",
+      "description": "Denari Gold - used for the dealer token, winner highlights, current turn indicators, and the special Re di Denari modal."
+    },
+    "accents": {
+      "spade_blue": "#26547C",
+      "bastoni_green": "#2A5C27",
+      "coppe_red": "#B32B2B",
+      "denari_gold": "#D4AF37"
+    },
+    "text": {
+      "primary": "#F5EBE1",
+      "secondary": "#A89C94",
+      "on_light": "#1A0F0D",
+      "on_primary": "#FFFFFF"
+    }
+  },
+  "visual enhancers": {
+    "textures": "Use subtle noise overlays (mix-blend-overlay with low opacity) on the background to simulate a vintage wooden table. Cards should have a slight parchment grain.",
+    "shadows": "Deep, warm ambient shadows (e.g., shadow-[0_8px_32px_rgba(20,10,5,0.6)]) for floating elements like the chat and modals. Playing cards on the table should have crisp drop-shadows.",
+    "borders": "1px solid borders with low opacity gold/wood tones (border-[#D4AF37]/20) for panels to give a premium, authentic feel without overwhelming."
+  },
+  "components": {
+    "cards": {
+      "aspect_ratio": "1:1.6",
+      "style": "Cream/parchment background (`bg-[#F5EBE1]`), rounded corners (`rounded-md`), crisp drop shadow. The back of the cards should use a dark blue or bordeaux intricate pattern.",
+      "suits": "SVG-based intricate designs for Denari (gold coins), Coppe (red chalices), Spade (blue curved swords), Bastoni (green wooden clubs). Do not use generic poker suits.",
+      "interaction": "Hover effects should slightly lift the card (`-translate-y-2`) for the player's hand."
+    },
+    "bidding_controls": {
+      "style": "A sleek row of buttons appearing above the player's hand during the bidding phase. Use glassmorphism over the Osteria background or solid bordeaux with gold text.",
+      "dealer_constraint": "If the player is the dealer and has a constrained choice (cannot declare a number where total tricks == total cards), that button must be visually disabled/crossed out with a tooltip explaining the rule."
+    },
+    "seating_layout": {
+      "style": "Elliptical/Radial grid. The local player is ALWAYS fixed at the bottom center (larger avatar and hand). The 2 to 7 opponents are distributed evenly along the top and sides of the screen.",
+      "player_avatar": "Circular avatar with player name in Cormorant Garamond, trick declaration (e.g., '2/3' won/declared), and an elegant token if they are the current dealer or active turn."
+    },
+    "scoreboards": {
+      "style": "Vintage ledger style for the running tournament score. Use a tabular layout with clean Sans numbers. Highlight the current leader in gold."
+    },
+    "special_modal": {
+      "style": "When 'Re di Denari' is played, a rich wooden modal slides up requesting the player to choose its value (Nominal vs '0 di Denari'). Use gold accents heavily here to signify its importance."
+    },
+    "chat_panel": {
+      "style": "Slide-out or floating panel on the side. Transparent dark background with a blur (`backdrop-blur-md bg-[#1A0F0D]/80`). Clean Manrope text. NO hand log should be printed here."
+    }
+  },
+  "grids_and_layouts": {
+    "lobby": "Bento-grid layout for 'Create Room', 'Join Room (Code)', and 'Player Stats'. Use large, tactile cards with bordeaux/wood background.",
+    "game_table": "Dynamic absolute positioning based on circular math to position 3-8 players around a central trick area (`w-full h-full min-h-[70vh] relative`)."
+  },
+  "motion": {
+    "cards": "Use framer-motion for smooth dealing from the center to players, playing a card to the center trick area, and sweeping the trick to the winner.",
+    "turn_indicator": "A soft pulsing glow (`animate-pulse`) behind the active player's avatar.",
+    "flip": "3D flip animation (`rotateY`) when revealing cards in the final 1-card round."
+  },
+  "accessibility": {
+    "contrast": "Ensure all text on dark wood backgrounds meets APCA standards (use cream #F5EBE1 for text).",
+    "data_testid": "Add `data-testid` to all interactive elements (e.g., `login-submit`, `create-room-btn`, `join-room-btn`, `play-card-btn`, `declare-trick-btn`)."
+  },
+  "media": {
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1576092762791-dd9e2220abd1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNDR8MHwxfHNlYXJjaHwxfHx2aW50YWdlJTIwaXRhbGlhbiUyMG9zdGVyaWElMjB0YWJsZSUyMHRleHR1cmV8ZW58MHx8fHwxNzkwMjA3MTk4fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Dark brown wooden surface for the table background (use with low opacity or as texture)",
+        "category": "background"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1529480653440-0e5fd1af911c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MjJ8MHwxfHNlYXJjaHw0fHxpdGFsaWFuJTIwcGxheWluZyUyMGNhcmRzfGVufDB8fHx8MTc5MDIwNzE5OHww&ixlib=rb-4.1.0&q=85",
+        "description": "Blue intricate playing card back pattern for opponents' cards",
+        "category": "card_back"
+      }
+    ]
+  },
+  "3d_libraries": {
+    "recommendation": "Use framer-motion for smooth 2.5D card flips and dealing animations. Full WebGL/Three.js is unnecessary and might make the UI feel less like a tactile 2D card game."
+  },
+  "instructions_to_main_agent": [
+    "Create .js files instead of .tsx (use standard React conventions with PropTypes or JSDoc if needed).",
+    "Use standard Tailwind CSS classes. Customize colors in tailwind.config.js to match the provided palette.",
+    "Implement WebSocket real-time updates for game state (bidding, playing, chat).",
+    "For the SVG Romagnole cards, create separate components for each suit (Denari, Coppe, Spade, Bastoni) to keep the aesthetic authentic. Use appropriate colors for each.",
+    "Ensure the game layout scales properly for 3 to 8 players. The math for positioning should distribute players evenly around an ellipse, keeping the bottom center reserved for the local player.",
+    "Remember the 'Re di Denari' modal is critical: it must interrupt the flow when played to ask the user for its value.",
+    "The final round logic requires showing everyone else's card face-up but keeping the player's own card face-down/hidden to themselves. Implement this specific UI state.",
+    "No hand log should be implemented in the chat or anywhere on the screen.",
+    "CRITICAL: Do not use complete transparent background in headers, overlays, or any surface that has content under it. Example: Dropdowns and floating chat must have solid or blurred background."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. In frontend design, this creates what users call the 'AI slop' aesthetic. Avoid this: make creative, distinctive frontends that surprise and delight.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "You MUST NOT apply universal transition. Eg: `transition: all`. This results in breaking transforms. Always add transitions for specific interactive elements like button, input excluding transforms.",
+    "You MUST NOT center align the app container, ie do not add `.App { text-align: center; }` in the css file. This disrupts the human natural reading flow of text.",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style.",
+    "NEVER: use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯 etc for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations. Static = dead.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary.",
+    "Main agent relies on these image URLs. Missing categories = main agent will use placeholder text which is FORBIDDEN.",
+    "Prioritize using pre-existing components from src/components/ui when applicable.",
+    "Use `sonner` for toasts. Sonner component are located in `/app/frontend/src/components/ui/sonner.js` or similar paths.",
+    "All interactive and key informational elements MUST include a `data-testid` attribute to facilitate robust automated testing."
+  ]
+}
