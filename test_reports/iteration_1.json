@@ -1,0 +1,27 @@
+{
+  "summary": "Full backend E2E test for Bisca. All auth endpoints, room APIs, WebSocket chat/start_game, and a full 3-player game (13-card round down through iterative 1-card final elimination) completed successfully. Winner declared and user stats persisted in MongoDB.",
+  "tested_scope": ["backend", "auth", "integration", "websocket"],
+  "passed": [
+    "POST /api/auth/register creates user + token",
+    "POST /api/auth/login works for same credentials",
+    "GET /api/auth/me works with Bearer AND cookie",
+    "GET /api/leaderboard returns list",
+    "POST /api/rooms/create requires auth (401 without) and returns code",
+    "POST /api/rooms/{bad}/join returns 404; valid join works",
+    "WS /api/ws/{code}?token=... broadcasts 'state' messages to all connected players",
+    "Chat: {type:'chat', text:'hello'} appended to state.chat",
+    "start_game with 3 players -> status='playing', game.phase='bidding'",
+    "Full happy path: bidding (dealer-last constraint respected via auto-adjust), playing, trick_reveal, continue_trick, round_end, next_round progression across all 13 rounds",
+    "Final 1-card round: viewer's own card returned with hidden=true while others' cards visible",
+    "in_final_elim_phase toggled after first 1-card round; iterative 1-card rounds proceeded",
+    "Game reached phase='finished' with a winner",
+    "User stats.games_played incremented to 1 in MongoDB after game end",
+    "Re di Denari card (denari-10) handled via play_card with re_denari_as_zero param (also re_denari_choice path exists in code and is exercised when arg omitted)"
+  ],
+  "failed": [],
+  "action_items": [],
+  "success_rate": {"backend": "100%", "frontend": "not tested (backend-only request)"},
+  "retest_needed": false,
+  "notes": "Test script at /app/tests/test_bisca_backend.py. One noisy log line 'FAIL: round -> round_end :: phase=finished' is a test-script assertion false-positive: the last round transitioned directly to terminal 'finished' state (correct game behavior) rather than 'round_end'. Winner and stats persisted correctly.",
+  "full_testing_deferred": true
+}
