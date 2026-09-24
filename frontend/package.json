@@ -138,15 +138,16 @@
     "**/jest-util/picomatch": "2.3.2",
     "**/tinyglobby/picomatch": "4.0.4",
         "http-proxy-middleware": "2.0.10",
-    "schema-utils": "3.3.0",
+    "date-fns": "^3.6.0"
+  },
+  "overrides": {
+    "date-fns": "^3.6.0",
+    "terser-webpack-plugin": "5.2.5",
+    "css-minimizer-webpack-plugin": "3.2.0",
     "ajv": "6.12.6",
     "ajv-keywords": "3.5.2"
   },
-  "overrides": {
-    "schema-utils": "3.3.0",
-    "ajv": "6.12.6",
-    "ajv-keywords": "3.5.2"
- },
+
 
  
 
