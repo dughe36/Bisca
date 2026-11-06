@@ -11,7 +11,7 @@ from game import BiscaGame, make_deck, card_rank
 logger = logging.getLogger("bisca.bot")
 
 BOT_PREFIX = "bot-"
-BOT_NAMES = ["Marco", "Giulia", "Luca", "Sara", "Paolo", "Elena", "Franco", "Rita"]
+BOT_NAMES = ["Ugo", "1ns3tt0C4mməll0", "rwuca", "Sara", "Sarco", "Trafalga", "Luciano", "Rita"]
 
 _DECK = make_deck()
 
