@@ -1,4 +1,4 @@
-"""Bisca — FastAPI server with auth, rooms, and WebSocket game sync."""
+
 from dotenv import load_dotenv
 from pathlib import Path
 
