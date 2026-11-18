@@ -25,9 +25,9 @@ from auth import (
 from rooms import room_manager, Room
 
 
-mongo_url = os.environ["MONGO_URL"]
+mongo_url = os.environ[mongodb+srv://dugheriatommaso_db_user:Stegone12@cluster0.mfp5x6l.mongodb.net]
 client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ["DB_NAME"]]
+db = client[os.environ[bisca]]
 
 app = FastAPI(title="Bisca")
 api = APIRouter(prefix="/api")
